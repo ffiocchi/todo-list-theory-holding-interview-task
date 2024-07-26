@@ -1,0 +1,14 @@
+<!-- <div class="list-group">
+@for (item of this.todos; track $index) {
+    <todo [formGroup]="this.todoFormGroupAt($index)" [todo]="item"></todo>
+}
+</div> -->
+
+
+<div class="toast-container position-static">
+    @for (item of this.todos; track $index) {
+        <todo-toast [formGroup]="this.todoFormGroupAt($index)" [todo]="item"></todo-toast>
+    }
+</div>
+
+<!-- <p>{{this.todos | json}}</p> -->

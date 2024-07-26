@@ -1,0 +1,27 @@
+<form [formGroup]="this.formGroup" class="mb-1">
+<div #toastRef class="toast align-items-center" 
+              [class]="this.formGroup.get('markAsComplete')?.value ? ['border','border-success','bg-success'] : []" 
+              style="--bs-bg-opacity: .5;"
+              [id]="this.todo!.id" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex align-items-center">
+      <div class="toast-body flex-grow-1">
+        <input type="text" formControlName="taskDescription" class="text-truncate"
+               data-bs-toggle="tooltip"
+        >
+      </div>
+      <div class="form-check p-0 m-0">
+        <input formControlName="markAsComplete" class="form-check-input d-none" type="checkbox" value="" id="{{'checkbox-'+this.todo!.id }}">
+        <label class="form-check-label" for="{{'checkbox-'+this.todo!.id }}">
+          <a class="btn me-2 m-auto py-0 px-1" [class.btn-outline-secondary]="!this.formGroup.get('markAsComplete')?.value" [class.btn-success]="this.formGroup.get('markAsComplete')?.value">
+            <i class="bi bi-check-circle-fill"></i>
+          </a>
+        </label>
+      </div>
+      
+      <!-- <input formControlName="markAsComplete" type="checkbox" (click)="this.markAsComplete($event)"> -->
+      <button type="button" class="btn-close me-2 m-auto" (click)="this.onDelete($event)" aria-label="Close"></button>
+    </div>
+  </div>
+</form>
+
+<!-- <p>{{this.formGroup.get("markAsComplete")?.value}}</p> -->

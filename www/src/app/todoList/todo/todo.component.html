@@ -1,0 +1,17 @@
+    <form [formGroup]="this.formGroup" >
+    <div [id]="this.todo?.id" class="d-flex w-100 justify-content-between" [attr.data-status]="this.todo?.markAsComplete">
+      <!-- <h5 class="mb-1">{{this.todo?.id}}</h5> -->
+      <small>{{this.todo?.insertDate | date:"mediumDate"}}</small>
+    </div>
+    <input formControlName="taskDescription" [attr.disabled]="this.formGroup.disabled"
+           type="text" placeholder="task" aria-label="task"           
+    >
+    <!-- <small>{{this.todo?.owner}}</small> -->
+    <input formControlName="markAsComplete" class="form-check-input me-1" type="checkbox">
+    </form>
+
+
+<button (click)="onDelete($event)" [attr.disabled]="this.formGroup.get('markAsComplete')?.value">Delete</button>
+
+<p>{{this.formGroup.get('markAsComplete')?.value| json}}</p>
+<p>{{this.todo | json}}</p>

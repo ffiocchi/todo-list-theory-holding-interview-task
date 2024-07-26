@@ -1,0 +1,22 @@
+.middle-btn{
+    border-radius: 50%;
+    position: absolute;
+    top:50%;
+    left: 0;
+    transform: translate(0,-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s 0.1s ease-out, left 0.3s ease-out;
+}
+
+:host.active {
+    .middle-btn{
+        opacity: 1;
+        pointer-events: all;
+        left: -20%
+    }
+}
+    
+[data-status="true"]{
+    border-color: forestgreen;
+}
